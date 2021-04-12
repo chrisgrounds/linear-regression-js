@@ -27,7 +27,7 @@ class LinearRegression {
     return yMean - (slope * xMean);
   }
 
-  calculate() {
+  fit() {
     const slope = new Slope(this.calculateSlope());
     const intercept = new Intercept(this.calculateIntercept(slope.value));
 
@@ -83,12 +83,21 @@ class Observations {
 
 const observations = new Observations();
 
-observations.add(1, 2);
-observations.add(2, 4);
-observations.add(3, 5);
-observations.add(4, 4);
-observations.add(5, 5);
+function range(size, startAt = 0) {
+  return [...Array(size).keys()].map(i => i + startAt);
+}
+
+const xs = range(100)
+const ys = range(101, 1)
+
+let x = 0;
+while (x < 100) {
+  observations.add(x, x + 1);
+  x++;
+}
 
 const linearRegression = new LinearRegression(observations);
-console.log(linearRegression.calculate());
-console.log(linearRegression.predict(100));
+
+console.log(linearRegression.fit());
+
+console.log(`x: ${500}, y: ${linearRegression.predict(500)}`);
