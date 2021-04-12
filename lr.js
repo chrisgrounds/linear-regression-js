@@ -96,8 +96,8 @@ while (x < 100) {
   x++;
 }
 
-const linearRegression = new LinearRegression(observations);
+const model = new LinearRegression(observations);
 
-console.log(linearRegression.fit());
+console.log(model.fit());
 
-console.log(`x: ${500}, y: ${linearRegression.predict(500)}`);
+console.log(`x: ${500}, y: ${model.predict(500)}`);
