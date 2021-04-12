@@ -1,10 +1,10 @@
 Math.sum = (a, b) => a + b;
 
 class LinearRegression {
-  constructor(observations) {
+  constructor(observations, slope = null, intercept = null) {
     this.observations = observations;
-    this.slope = null;
-    this.intercept = null;
+    this.slope = slope;
+    this.intercept = intercept;
   }
 
   calculateSlope() {
