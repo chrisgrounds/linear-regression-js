@@ -1,8 +1,4 @@
-class LinearRegressionMath {
-  static sum(a, b) {
-    return a + b;
-  }
-}
+Math.sum = (a, b) => a + b;
 
 class LinearRegression {
   constructor(observations) {
@@ -16,11 +12,11 @@ class LinearRegression {
 
     const denominator = deltas
       .map(({ xD }) => Math.pow(xD, 2))
-      .reduce(LinearRegressionMath.sum, 0);
+      .reduce(Math.sum, 0);
 
     const numerator = deltas
       .map(({ xD, yD }) => xD * yD)
-      .reduce(LinearRegressionMath.sum, 0); ;
+      .reduce(Math.sum, 0); ;
 
     return numerator / denominator;
   }
